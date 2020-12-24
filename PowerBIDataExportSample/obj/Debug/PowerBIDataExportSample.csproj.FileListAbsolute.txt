@@ -1,0 +1,37 @@
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe.config
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.pdb
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csprojAssemblyReference.cache
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CoreCompileInputs.cache
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CopyComplete
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.exe
+C:\Users\John\Downloads\BI_Tools-master\Power BI API - Power BI Service Data Sample Application\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.pdb
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe.config
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.pdb
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csprojAssemblyReference.cache
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CoreCompileInputs.cache
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CopyComplete
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.exe
+D:\source\repos\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.pdb
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe.config
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.pdb
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csprojAssemblyReference.cache
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CopyComplete
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.exe
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.pdb
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Newtonsoft.Json.dll
+D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Newtonsoft.Json.xml
