@@ -78,7 +78,7 @@ namespace PowerBIDataExportSample
 
 
 
-                AddRows("c2435b5d-5e75-48a3-b873-ceb1948ba252", "ComputerSoftwareInventory");
+                AddRows("efb13f2c-d94d-459f-83d2-e67af7f6391f", "ComputerSoftwareInventory");
                 Console.WriteLine("");
                 Console.WriteLine("- Done!");
             }
@@ -416,7 +416,8 @@ namespace PowerBIDataExportSample
         {
             string powerBIApiAddRowsUrl = String.Format("https://api.powerbi.com/v1.0/myorg/datasets/{0}/tables/{1}/rows", datasetId, tableName);
             HttpResponseMessage response = null;
-           
+            string strContent = "";
+            HttpContent responseContent = null;
 
             ////POST web request to add rows.
             ////To add rows to a dataset in a group, use the Groups uri: https://api.powerbi.com/v1.0/myorg/groups/{group_id}/datasets/{dataset_id}/tables/{table_name}/rows
@@ -432,9 +433,10 @@ namespace PowerBIDataExportSample
 
             ////JSON content for product row
             string rowsJson = "{\"rows\":" +
-                "[{\"ProductID\":1,\"Name\":\"Adjustable Race\",\"Category\":\"Components\",\"IsCompete\":true,\"ManufacturedOn\":\"07/30/2014\"}," +
-                "{\"ProductID\":2,\"Name\":\"LL Crankarm\",\"Category\":\"Components\",\"IsCompete\":true,\"ManufacturedOn\":\"07/30/2014\"}," +
-                "{\"ProductID\":3,\"Name\":\"HL Mountain Frame - Silver\",\"Category\":\"Bikes\",\"IsCompete\":true,\"ManufacturedOn\":\"07/30/2014\"}]}";
+                "[{\"AppVersion\":1,\"ComputerName\":\"Adjustable Race\",\"DisplayName\":\"Components\",\"InstallDate\":\"07/30/2014\",\"InstallLocation\":\"07/30/2014\",\"IsDomainJoined\":\"true\",\"IsMSI\":\"true\",\"IsThereIntuneManagementExtension\":\"true\",\"Publisher\":\"true\",\"UninstallString\":\"ddfgdfghdfgh\"}," +
+                //"[{\"AppVersion\":1,\"ComputerName\":\"Adjustable Race\",\"DisplayName\":\"Components\",\"InstallDate\":" + DateTime.Now.ToString("yyyyMMdd") + ",\"InstallLocation\":\"07/30/2014\",\"IsDomainJoined\":\"true\",\"IsMSI\":\"true\",\"IsThereIntuneManagementExtension\":\"true\",\"Publisher\":\"true\",\"UninstallString\":\"ddfgdfghdfgh\"}," +
+                "{\"AppVersion\":2,\"ComputerName\":\"LL Crankarm\",\"DisplayName\":\"Components\",\"InstallDate\":\"07/30/2014\",\"InstallLocation\":\"07/30/2014\", \"IsDomainJoined\":\"false\",\"IsMSI\":\"false\",\"IsThereIntuneManagementExtension\":\"true\",\"Publisher\":\"true\",\"UninstallString\":\"dfghdfghdfghdh\"}]}";
+            //"{\"AppVersion\":2,\"ComputerName\":\"LL Crankarm\",\"DisplayName\":\"Components\",\"InstallDate\":" + DateTime.Now.ToString("yyyyMMdd") + ",\"InstallLocation\":\"07/30/2014\", \"IsDomainJoined\":\"false\",\"IsMSI\":\"false\",\"IsThereIntuneManagementExtension\":\"true\",\"Publisher\":\"true\",\"UninstallString\":\"dfghdfghdfghdh\"}]}";
 
             ////POST web request
             //byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(rowsJson);
@@ -443,11 +445,36 @@ namespace PowerBIDataExportSample
 
             HttpContent c = new StringContent(rowsJson, Encoding.UTF8, "application/json");
 
-            client.PostAsync(powerBIApiAddRowsUrl, c);
+            response = client.PostAsync(powerBIApiAddRowsUrl, c).Result;
+
+            responseContent = response.Content;
+
+            strContent = responseContent.ReadAsStringAsync().Result;
+            Console.WriteLine(responseContent);
+            if (strContent.Length > 0)
+            {
+                Console.WriteLine("   - De-serializing Workspace Data...");
+
+                // Parse the JSON string into objects and store in DataTable
+                ////JavaScriptSerializer js = new JavaScriptSerializer();
+                ////js.MaxJsonLength = 2147483647;  // Set the maximum json document size to the max
+                ////rc = js.Deserialize<PowerBIWorkspace>(strContent);
+
+                var results = JsonConvert.DeserializeObject<dynamic>(strContent);
+                Console.WriteLine(results);
+                //foreach (var result in results)
+                //{
+                //    datasetId = result["value"][0]["id"];
+                //    Console.WriteLine(String.Format("Dataset ID: {​​0}​​", result));
+                //}
+            }
+            else
+            {
+                Console.WriteLine("   - No content received.");
+            }
 
 
-          
-           
+
 
         }
 
