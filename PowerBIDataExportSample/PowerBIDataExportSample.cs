@@ -41,7 +41,7 @@ namespace PowerBIDataExportSample
         const string Password = "mysecretpassword";  // Put your Active Directory / Power BI Password here (note this is not secure pace to store this!  this is a sample only)
 
         // Variables 
-        HttpClient client = null;
+        private static HttpClient client = null;
 
 
         /// ----------------------------------------------------------------------------------------------------------------------------------------------------------------- ///
@@ -74,11 +74,11 @@ namespace PowerBIDataExportSample
                 //GetWorkspaces();
 
                 //CreateDataset(authToken);
-                GetDatasets();
+                //GetDatasets();
 
 
-              
 
+                AddRows("c2435b5d-5e75-48a3-b873-ceb1948ba252", "ComputerSoftwareInventory");
                 Console.WriteLine("");
                 Console.WriteLine("- Done!");
             }
@@ -392,87 +392,7 @@ namespace PowerBIDataExportSample
                         Console.WriteLine(String.Format("Dataset ID: {​​0}​​", datasetId));
                         Console.ReadLine();
                         
-                        if (rc != null)
-                        {
-                            if (rc.value != null)
-                            {
-                                Console.WriteLine("      - Workspaces received: " + rc.value.Count);
-                                foreach (PowerBIWorkspaceValue item in rc.value)
-                                {
-                                    Console.ReadKey();
-                                    string workspaceID = "";
-                                    string workspaceName = "";
-                                    string workspaceDescription = "";
-                                    string capacityID = "";
-                                    string dataflowStorageID = "";
-                                    bool isOnDedicatedCapacity = false;
-                                    bool isReadOnly = false;
-                                    bool isOrphaned = false;
-                                    string workspaceState = "";
-                                    string workspaceType = "";
-
-                                    if (item.id != null)
-                                    {
-                                        workspaceID = item.id;
-                                    }
-
-                                    if (item.name != null)
-                                    {
-                                        workspaceName = item.name;
-                                    }
-
-                                    if (item.description != null)
-                                    {
-                                        workspaceDescription = item.description;
-                                    }
-
-                                    if (item.capacityId != null)
-                                    {
-                                        capacityID = item.capacityId;
-                                    }
-
-                                    if (item.dataflowStorageId != null)
-                                    {
-                                        dataflowStorageID = item.dataflowStorageId;
-                                    }
-
-                                    if (item.type != null)
-                                    {
-                                        workspaceType = item.type;
-                                    }
-
-                                    isOnDedicatedCapacity = item.isOnDedicatedCapacity;
-                                    isReadOnly = item.isReadOnly;
-                                    isOrphaned = item.isOrphaned;
-
-                                    if (item.state != null)
-                                    {
-                                        workspaceState = item.state;
-                                    }
-
-                                    if (item.type != null)
-                                    {
-                                        workspaceState = item.type;
-                                    }
-
-                                    // Output the Workspace Data
-                                    Console.WriteLine("");
-                                    Console.WriteLine("----------------------------------------------------------------------------------");
-                                    Console.WriteLine("");
-                                    Console.WriteLine("Workspace ID: " + workspaceID);
-                                    Console.WriteLine("Workspace Name: " + workspaceName);
-                                    Console.WriteLine("Workspace Description: " + workspaceDescription);
-                                    Console.WriteLine("Capacity ID: " + capacityID);
-                                    Console.WriteLine("Dataflow Storage ID: " + dataflowStorageID);
-                                    Console.WriteLine("On Dedicated Capacity: " + isOnDedicatedCapacity);
-                                    Console.WriteLine("Read Only: " + isReadOnly);
-                                    Console.WriteLine("Orphaned: " + isOrphaned);
-                                    Console.WriteLine("WorkspaceState: " + workspaceState);
-                                    Console.WriteLine("WorkspaceType: " + workspaceType);
-                                    Console.ReadKey();
-                                } // foreach
-                            } // rc.value
-                        } // rc
+                    
 
                     }
                     else
@@ -491,73 +411,113 @@ namespace PowerBIDataExportSample
             }
         }
 
-
-        public void PostRows()
+        #region Add rows to a Power BI table
+        public static void AddRows(string datasetId, string tableName)
         {
+            string powerBIApiAddRowsUrl = String.Format("https://api.powerbi.com/v1.0/myorg/datasets/{0}/tables/{1}/rows", datasetId, tableName);
             HttpResponseMessage response = null;
-            HttpContent responseContent = null;
-            string strContent = "";
+           
 
-            PowerBIWorkspace rc = null;
+            ////POST web request to add rows.
+            ////To add rows to a dataset in a group, use the Groups uri: https://api.powerbi.com/v1.0/myorg/groups/{group_id}/datasets/{dataset_id}/tables/{table_name}/rows
+            ////Change request method to "POST"
+            //HttpWebRequest request = System.Net.WebRequest.Create(powerBIApiAddRowsUrl) as System.Net.HttpWebRequest;
+            //request.KeepAlive = true;
+            //request.Method = "POST";
+            //request.ContentLength = 0;
+            //request.ContentType = "application/json";
 
-            //string serviceURL = PBI_API_URLBASE +  "datasets";
-            string serviceURL = "https://api.PowerBI.com/v1.0/myorg/groups/{ffa5684d-a93f-4430-93c2-0491f8ff7d37}/datasets";
-            try
-            {
-                Console.WriteLine("");
-                Console.WriteLine("- Retrieving data from: " + serviceURL);
+            ////Add token to the request header
+            //request.Headers.Add("Authorization", String.Format("Bearer {0}"));
+
+            ////JSON content for product row
+            string rowsJson = "{\"rows\":" +
+                "[{\"ProductID\":1,\"Name\":\"Adjustable Race\",\"Category\":\"Components\",\"IsCompete\":true,\"ManufacturedOn\":\"07/30/2014\"}," +
+                "{\"ProductID\":2,\"Name\":\"LL Crankarm\",\"Category\":\"Components\",\"IsCompete\":true,\"ManufacturedOn\":\"07/30/2014\"}," +
+                "{\"ProductID\":3,\"Name\":\"HL Mountain Frame - Silver\",\"Category\":\"Bikes\",\"IsCompete\":true,\"ManufacturedOn\":\"07/30/2014\"}]}";
+
+            ////POST web request
+            //byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(rowsJson);
+            //request.ContentLength = byteArray.Length;
 
 
+            HttpContent c = new StringContent(rowsJson, Encoding.UTF8, "application/json");
 
-                response = client.PostAsync(serviceURL, ).Result;
+            client.PostAsync(powerBIApiAddRowsUrl, c);
 
-                Console.WriteLine("   - Response code received: " + response.StatusCode);
-                //Console.WriteLine(response);  // debug
-                try
-                {
-                    responseContent = response.Content;
 
-                    strContent = responseContent.ReadAsStringAsync().Result;
-                    Console.WriteLine(responseContent);
-                    if (strContent.Length > 0)
-                    {
-                        Console.WriteLine("   - De-serializing Workspace Data...");
+          
+           
 
-                        // Parse the JSON string into objects and store in DataTable
-                        ////JavaScriptSerializer js = new JavaScriptSerializer();
-                        ////js.MaxJsonLength = 2147483647;  // Set the maximum json document size to the max
-                        ////rc = js.Deserialize<PowerBIWorkspace>(strContent);
-
-                        string datasetId = string.Empty;
-                        var results = JsonConvert.DeserializeObject<dynamic>(strContent);
-                        Console.WriteLine(results);
-                        //foreach (var result in results)
-                        //{
-                        //    datasetId = result["value"][0]["id"];
-                        //    Console.WriteLine(String.Format("Dataset ID: {​​0}​​", result));
-                        //}
-
-                        datasetId = results["value"][0]["id"];
-                        Console.WriteLine(String.Format("Dataset ID: {​​0}​​", datasetId));
-                        Console.ReadLine();
-
-                       
-                    }
-                    else
-                    {
-                        Console.WriteLine("   - No content received.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("   - API Access Error: " + ex.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("   - API Access Error: " + ex.ToString());
-            }
         }
+
+        #endregion
+        //public void PostRows()
+        //{
+        //    HttpResponseMessage response = null;
+        //    HttpContent responseContent = null;
+        //    string strContent = "";
+
+        //    PowerBIWorkspace rc = null;
+
+        //    //string serviceURL = PBI_API_URLBASE +  "datasets";
+        //    string serviceURL = "https://api.PowerBI.com/v1.0/myorg/groups/{ffa5684d-a93f-4430-93c2-0491f8ff7d37}/datasets";
+        //    try
+        //    {
+        //        Console.WriteLine("");
+        //        Console.WriteLine("- Retrieving data from: " + serviceURL);
+
+
+
+        //        response = client.PostAsync(serviceURL, ).Result;
+
+        //        Console.WriteLine("   - Response code received: " + response.StatusCode);
+        //        //Console.WriteLine(response);  // debug
+        //        try
+        //        {
+        //            responseContent = response.Content;
+
+        //            strContent = responseContent.ReadAsStringAsync().Result;
+        //            Console.WriteLine(responseContent);
+        //            if (strContent.Length > 0)
+        //            {
+        //                Console.WriteLine("   - De-serializing Workspace Data...");
+
+        //                // Parse the JSON string into objects and store in DataTable
+        //                ////JavaScriptSerializer js = new JavaScriptSerializer();
+        //                ////js.MaxJsonLength = 2147483647;  // Set the maximum json document size to the max
+        //                ////rc = js.Deserialize<PowerBIWorkspace>(strContent);
+
+        //                string datasetId = string.Empty;
+        //                var results = JsonConvert.DeserializeObject<dynamic>(strContent);
+        //                Console.WriteLine(results);
+        //                //foreach (var result in results)
+        //                //{
+        //                //    datasetId = result["value"][0]["id"];
+        //                //    Console.WriteLine(String.Format("Dataset ID: {​​0}​​", result));
+        //                //}
+
+        //                datasetId = results["value"][0]["id"];
+        //                Console.WriteLine(String.Format("Dataset ID: {​​0}​​", datasetId));
+        //                Console.ReadLine();
+
+
+        //            }
+        //            else
+        //            {
+        //                Console.WriteLine("   - No content received.");
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine("   - API Access Error: " + ex.ToString());
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("   - API Access Error: " + ex.ToString());
+        //    }
+        //}
 
 
 

@@ -35,3 +35,17 @@ D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debu
 D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.pdb
 D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Newtonsoft.Json.dll
 D:\Davivienda\Intune\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Newtonsoft.Json.xml
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csprojAssemblyReference.cache
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CoreCompileInputs.cache
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.exe
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.pdb
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe.config
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.exe
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\PowerBIDataExportSample.pdb
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Newtonsoft.Json.dll
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\bin\Debug\Newtonsoft.Json.xml
+D:\source\Github\PowerBIAPI-inventoryIntune\PowerBIDataExportSample\obj\Debug\PowerBIDataExportSample.csproj.CopyComplete
